@@ -13,6 +13,9 @@ class Benefactor(models.Model):
 
 
 class Charity(models.Model):
+    user = models.OneToOneField(User , on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+    reg_number = models.CharField(max_length=10)
     pass
 
 
