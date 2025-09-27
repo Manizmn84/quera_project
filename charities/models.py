@@ -20,4 +20,21 @@ class Charity(models.Model):
 
 
 class Task(models.Model):
+    assigend_benefactor = models.ForeignKey(Benefactor , on_delete=models.SET_NULL , null=True)
+    charity = models.ForeignKey(Charity)
+    age_limit_form = models.IntegerField(blank=True , null=True)
+    age_limit_to = models.IntegerField(blank=True , null=True)
+    date = models.DateField(blank=True , null=True)
+    description = models.TextField(blank=True , null=True)
+    gender_limit = models.CharField(choices=[
+        ("M","Male"),
+        ("F","Female")
+    ],blank=True,null=True)
+    state = models.CharField(choices=[
+        ("P","Pending"),
+        ("W","Waiting"),
+        ("A","Assigned"),
+        ("D","Done")
+    ],default="P")
+    title = models.CharField(max_length=60)
     pass
